@@ -24,4 +24,4 @@ Currently, I've only tested forge version 1.12, I hope you can help me test othe
 
 Powered by python and ❤️
 
-``Poor English, you can translate the Chinese readme for your self``
+``Poor English, you can translate the Chinese readme for yourself``
