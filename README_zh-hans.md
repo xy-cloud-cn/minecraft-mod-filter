@@ -19,6 +19,13 @@
 ✨ 捉虫  
 ## 已知问题
 目前我只测试了forge 1.12版本，希望各位可以帮我测测其他加载器和其他版本，我先睡为敬Zzzzzz
+## 如何使用
+### For Developer
+    pip install -r requirements.txt
+    python main.py
+建议使用python 3.10
+### For customer
+https://github.com/xy-cloud-cn/minecraft-mod-filter/releases
 ### 欢迎各位pr帮我完成Todo或者捉虫
 ##### 如果你喜欢这个项目，请给我一个免费的star⭐
 

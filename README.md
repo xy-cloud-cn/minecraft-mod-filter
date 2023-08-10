@@ -19,6 +19,13 @@ Quickly filter the minecraft modpack to see if any of its mods are client-side/s
 ✨ Debug  
 ## Known issues
 Currently, I've only tested forge version 1.12, I hope you can help me test other mod loaders and other versions.
+## How to use
+### For Developer
+    pip install -r requirements.txt
+    python main.py
+Recommended to use python 3.10
+### For customer
+https://github.com/xy-cloud-cn/minecraft-mod-filter/releases
 ### You are welcome to pull requests to help me finish Todo or fix bugs.
 ##### If you like this project, please give me a free star⭐!
 
