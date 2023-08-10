@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">Minecraft mod filter</h1>
-<p align="center"><a href="https://github.com/xy-cloud-cn/minecraft-mod-filter/blob/main/README.md">English</a> | 简体中文</p>
+<p align="center"><a href="https://github.com/xy-cloud-cn/minecraft-mod-filter/blob/master/README.md">English</a> | 简体中文</p>
 
 在minecraft modpack中，快速筛选出其中的mod是否为客户端专属/服务端专属
 ## 特点

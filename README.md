@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">Minecraft mod filter</h1>
-<p align="center">English | <a href="https://github.com/xy-cloud-cn/minecraft-mod-filter/blob/main/README_zh-hans.md">简体中文</a></p>
+<p align="center">English | <a href="https://github.com/xy-cloud-cn/minecraft-mod-filter/blob/master/README_zh-hans.md">简体中文</a></p>
 
 Quickly filter the minecraft modpack to see if any of its mods are client-side/server-side.
 ## Features
