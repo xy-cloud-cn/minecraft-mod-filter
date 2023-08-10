@@ -2,6 +2,8 @@
 # Author : xy_cloud
 import concurrent.futures
 import os
+import shutil
+
 import yaml
 import api.mod
 import api.modrinth
