@@ -1,0 +1,5 @@
+requests==2.31.0
+pywebview==4.2.2
+fuzzywuzzy==0.18.0
+python-levenshtein
+tqdm==4.66.0
