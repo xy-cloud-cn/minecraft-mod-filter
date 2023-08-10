@@ -10,9 +10,8 @@ import api.exception
 def read_modinfo(jar_path, output_path='temp/'):
     info = 'ERROR'
     try:
-        if os.path.exists(output_path):
-            shutil.rmtree('temp')
-        os.mkdir(output_path)
+        if not os.path.exists(output_path):
+            os.mkdir(output_path)
         output_path += os.path.splitext(jar_path.split('/')[-1])[0] + '/'
         if not os.path.exists(output_path):
             os.mkdir(output_path)

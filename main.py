@@ -11,16 +11,21 @@ import api.view
 from tkinter import filedialog
 from tqdm import tqdm
 
-mods_path = filedialog.askdirectory(initialdir=os.getcwd())+'/'
+mods_path = filedialog.askdirectory(initialdir=os.getcwd()) + '/'
+if os.path.samefile(mods_path, '/') or os.path.samefile(mods_path, os.getcwd()):
+    exit(1)
 with open('config/config.yml') as f:
     cfg = yaml.safe_load(f.read())
 modlist = os.listdir(mods_path)
 modlist_view = {}
 modinfolist = []
+output_path = 'temp/'
+if os.path.exists(output_path):
+    shutil.rmtree(output_path)
 with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
     to_do = []
     for i in modlist:
-        future = executor.submit(api.mod.read_modinfo, mods_path + i)
+        future = executor.submit(api.mod.read_modinfo, mods_path + i, output_path)
         to_do.append(future)
     for future in tqdm(concurrent.futures.as_completed(to_do)):
         r = future.result()
