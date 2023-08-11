@@ -8,7 +8,8 @@
 Quickly filter the minecraft modpack to see if any of its mods are client-side/server-side.
 ## Features
 👻 Quickly scans your mods and tells you their server/client compatibility.  
-💎 Support for cli and gui, default is cli
+💎 Support for cli and gui, default is cli  
+🎃 i18n support
 ## Todo
 ✨ Support Java reflection to read @mod annotations  
 ✨ Faster file processing with rust  
@@ -18,7 +19,7 @@ Quickly filter the minecraft modpack to see if any of its mods are client-side/s
 ✨ Make a server-side launcher-cli  
 ✨ Optimize the UI  
 ✨ Debug  
-✨ i18n support  
+✨ ~~i18n support~~  
 ## Known issues
 Currently, I've only tested forge version 1.12, I hope you can help me test other mod loaders and other versions.
 ## How to use
@@ -26,7 +27,7 @@ Currently, I've only tested forge version 1.12, I hope you can help me test othe
     pip install -r requirements.txt
     python main.py
 
-args:-h,--gui  
+args:-h,--gui,[-l/--locate]  
 Recommended to use python 3.10
 ### For customer
 https://github.com/xy-cloud-cn/minecraft-mod-filter/releases
