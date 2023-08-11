@@ -3,4 +3,5 @@ pywebview==4.2.2
 fuzzywuzzy==0.18.0
 python-levenshtein
 tqdm==4.66.0
-pyyaml
+pyyaml==6.0.1
+prettytable==3.8.0

@@ -7,22 +7,26 @@
 
 在minecraft modpack中，快速筛选出其中的mod是否为客户端专属/服务端专属
 ## 特点
-👻 快速地扫描你的mod，并且告诉你这些mod的服务端/客户端兼容性
+👻 快速地扫描你的mod，并且告诉你这些mod的服务端/客户端兼容性  
+💎 支持cli和gui，默认为cli
 ## Todo
 ✨ 支持反射读@mod注解  
 ✨ 使用rust进行更快的文件处理  
-✨ 增加一个对于终端用户的CLI  
+✨ ~~增加一个对于终端用户的CLI~~  
 ✨ 自动生成服务端整合包(包括自动安装核心等)  
 ✨ 制作服务端启动器  
 ✨ 制作服务端启动器-cli  
 ✨ 优化UI  
 ✨ 捉虫  
+✨ i18n支持
 ## 已知问题
 目前我只测试了forge 1.12版本，希望各位可以帮我测测其他加载器和其他版本，我先睡为敬Zzzzzz
 ## 如何使用
 ### For Developer
     pip install -r requirements.txt
     python main.py
+
+args:-h,--gui  
 建议使用python 3.10
 ### For customer
 https://github.com/xy-cloud-cn/minecraft-mod-filter/releases

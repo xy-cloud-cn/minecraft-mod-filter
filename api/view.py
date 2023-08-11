@@ -2,6 +2,7 @@
 # Author : xy_cloud
 import webview
 
+from prettytable import PrettyTable
 
 def start_view(modlist_view):
     shtml = """
@@ -46,3 +47,17 @@ def start_view(modlist_view):
     """
     webview.create_window('Mod Filter', html=shtml)
     webview.start()
+def start_cli(modlist_view):
+    table = PrettyTable(['title', 'path', 'client', 'server'])
+    for i in modlist_view:
+        img_url = i[1][3]
+        if img_url == 'Unknown':
+            img_url = 'https://www.minecraft.net/etc.clientlibs/minecraft/clientlibs/main/resources/favicon.ico'
+        client = i[1][1]
+        server = i[1][2]
+        mod_dict = {'required': '需装', 'optional': '可选', 'unsupported': '无效', 'Unknown': '未知'}
+        client = '客户端' + mod_dict[client]
+        server = '服务端' + mod_dict[server]
+        table.add_row([i[1][0], i[0], client, server])
+    print(table)
+

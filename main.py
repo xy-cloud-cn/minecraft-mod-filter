@@ -3,14 +3,19 @@
 import concurrent.futures
 import os
 import shutil
-
+import argparse
 import yaml
 import api.mod
 import api.modrinth
 import api.view
 from tkinter import filedialog
 from tqdm import tqdm
-
+import gettext
+_ = gettext.gettext
+parser = argparse.ArgumentParser()
+parser.add_argument('--gui',required=False, action='store_true',default=False,help='use gui')
+arg=parser.parse_args()
+print(arg)
 mods_path = filedialog.askdirectory(initialdir=os.getcwd()) + '/'
 if os.path.samefile(mods_path, '/') or os.path.samefile(mods_path, os.getcwd()):
     exit(1)
@@ -50,4 +55,7 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
         else:
             modlist_view[opi[future]['localpath']].extend(
                 [projinfo['client_side'], projinfo['server_side'], projinfo['icon_url']])
-api.view.start_view(sorted(list(modlist_view.items()), key=lambda x: x[0]))
+if arg.gui:
+    api.view.start_view(sorted(list(modlist_view.items()), key=lambda x: x[0]))
+else:
+    api.view.start_cli(sorted(list(modlist_view.items()), key=lambda x: x[0]))
