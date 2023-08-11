@@ -27,7 +27,7 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
     for i in modlist:
         future = executor.submit(api.mod.read_modinfo, mods_path + i, output_path)
         to_do.append(future)
-    for future in tqdm(concurrent.futures.as_completed(to_do)):
+    for future in tqdm(concurrent.futures.as_completed(to_do), total=len(modlist)):
         r = future.result()
         if not r[0] == 'ERROR':
             r[0]['localpath'] = r[1]
@@ -43,7 +43,7 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
         future = executor.submit(modrinth_api.find_mod, i['name'], i['modid'])
         to_do.append(future)
         opi[future] = i
-    for future in tqdm(concurrent.futures.as_completed(to_do)):
+    for future in tqdm(concurrent.futures.as_completed(to_do), total=len(modinfolist)):
         projinfo = future.result()
         if projinfo == 'ERROR':
             modlist_view[opi[future]['localpath']].extend(['Unknown', 'Unknown', 'Unknown'])
