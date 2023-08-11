@@ -11,11 +11,33 @@ import api.view
 from tkinter import filedialog
 from tqdm import tqdm
 import gettext
-_ = gettext.gettext
+
+print(r''' __       __ __                                               ______    __          __       __                __      ________ __ __   __
+|  \     /  \  \                                             /      \  |  \        |  \     /  \              |  \    |        \  \  \ |  \
+| ▓▓\   /  ▓▓\▓▓_______   ______   _______  ______   ______ |  ▓▓▓▓▓▓\_| ▓▓_       | ▓▓\   /  ▓▓ ______   ____| ▓▓    | ▓▓▓▓▓▓▓▓\▓▓ ▓▓_| ▓▓_    ______   ______
+| ▓▓▓\ /  ▓▓▓  \       \ /      \ /       \/      \ |      \| ▓▓_  \▓▓   ▓▓ \      | ▓▓▓\ /  ▓▓▓/      \ /      ▓▓    | ▓▓__   |  \ ▓▓   ▓▓ \  /      \ /      \
+| ▓▓▓▓\  ▓▓▓▓ ▓▓ ▓▓▓▓▓▓▓\  ▓▓▓▓▓▓\  ▓▓▓▓▓▓▓  ▓▓▓▓▓▓\ \▓▓▓▓▓▓\ ▓▓ \    \▓▓▓▓▓▓      | ▓▓▓▓\  ▓▓▓▓  ▓▓▓▓▓▓\  ▓▓▓▓▓▓▓    | ▓▓  \  | ▓▓ ▓▓\▓▓▓▓▓▓ |  ▓▓▓▓▓▓\  ▓▓▓▓▓▓\
+| ▓▓\▓▓ ▓▓ ▓▓ ▓▓ ▓▓  | ▓▓ ▓▓    ▓▓ ▓▓     | ▓▓   \▓▓/      ▓▓ ▓▓▓▓     | ▓▓ __     | ▓▓\▓▓ ▓▓ ▓▓ ▓▓  | ▓▓ ▓▓  | ▓▓    | ▓▓▓▓▓  | ▓▓ ▓▓ | ▓▓ __| ▓▓    ▓▓ ▓▓   \▓▓
+| ▓▓ \▓▓▓| ▓▓ ▓▓ ▓▓  | ▓▓ ▓▓▓▓▓▓▓▓ ▓▓_____| ▓▓     |  ▓▓▓▓▓▓▓ ▓▓       | ▓▓|  \    | ▓▓ \▓▓▓| ▓▓ ▓▓__/ ▓▓ ▓▓__| ▓▓    | ▓▓     | ▓▓ ▓▓ | ▓▓|  \ ▓▓▓▓▓▓▓▓ ▓▓
+| ▓▓  \▓ | ▓▓ ▓▓ ▓▓  | ▓▓\▓▓     \\▓▓     \ ▓▓      \▓▓    ▓▓ ▓▓        \▓▓  ▓▓    | ▓▓  \▓ | ▓▓\▓▓    ▓▓\▓▓    ▓▓    | ▓▓     | ▓▓ ▓▓  \▓▓  ▓▓\▓▓     \ ▓▓
+ \▓▓      \▓▓\▓▓\▓▓   \▓▓ \▓▓▓▓▓▓▓ \▓▓▓▓▓▓▓\▓▓       \▓▓▓▓▓▓▓\▓▓         \▓▓▓▓      \▓▓      \▓▓ \▓▓▓▓▓▓  \▓▓▓▓▓▓▓     \▓▓      \▓▓\▓▓   \▓▓▓▓  \▓▓▓▓▓▓▓\▓▓
+
+
+
+''')
+
+
+
 parser = argparse.ArgumentParser()
-parser.add_argument('--gui',required=False, action='store_true',default=False,help='use gui')
-arg=parser.parse_args()
-print(arg)
+parser.add_argument('--gui', required=False, action='store_true', default=False, help='Use GUI')
+parser.add_argument('-l', '--locate', type=str, choices=['zh-CN', 'en'], default='en', required=False,
+                    help='Your language')
+arg = parser.parse_args()
+
+lang = gettext.translation('mcmodfilter', localedir='i18n', languages=[arg.locate],)
+lang.install('mcmodfilter')
+_ = lang.gettext
+
 mods_path = filedialog.askdirectory(initialdir=os.getcwd()) + '/'
 if os.path.samefile(mods_path, '/') or os.path.samefile(mods_path, os.getcwd()):
     exit(1)
