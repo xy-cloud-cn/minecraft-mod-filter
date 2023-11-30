@@ -20,6 +20,7 @@ Quickly filter the minecraft modpack to see if any of its mods are client-side/s
 ✨ Optimize the UI  
 ✨ Debug  
 ✨ ~~i18n support~~  
+✨ Make a terminal UI using curses  
 ## Known issues
 Currently, I've only tested forge version 1.12, I hope you can help me test other mod loaders and other versions.
 ## How to use
